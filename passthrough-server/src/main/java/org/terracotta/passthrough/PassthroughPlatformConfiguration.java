@@ -34,13 +34,13 @@ public class PassthroughPlatformConfiguration implements PlatformConfiguration {
   private final int port;
   private final String serverName;
   private final Collection<Object> extendedConfigurationObjects;
-  
+
   public PassthroughPlatformConfiguration(String serverName, int port, Collection<Object> extendedConfigurationObjects) {
     this.serverName = serverName;
     this.port = port;
     this.extendedConfigurationObjects = extendedConfigurationObjects;
   }
-  
+
   @Override
   public String getServerName() {
     return this.serverName;
@@ -65,5 +65,10 @@ public class PassthroughPlatformConfiguration implements PlatformConfiguration {
       }
     }
     return filtered;
+  }
+
+  @Override
+  public <T> T getDynamicConfiguration(final Class<T> type) {
+    return null;
   }
 }
